@@ -8,25 +8,28 @@ client = predictionio.Client(appkey="hkp4eZXspTjIJUhk7RJpEaO1YWO2V4t8QRHG4nZTjHz
 
 ########################################################
 # open user_ids csv and put users into a list. Then generate a list of 100 users to get recs for.
-f = open("user_ids.csv", 'rU')
+# f = open("user_ids.csv", 'rU')
 
-user_id_reader = csv.reader(f, dialect=csv.excel_tab)
+# user_id_reader = csv.reader(f, dialect=csv.excel_tab)
 
-users = []
+# users = []
 
-for user_id in user_id_reader:
-	users.append(user_id)
+# for user_id in user_id_reader:
+# 	users.append(user_id)
 
-users_for_recs = []
+# users_for_recs = []
 
-counter = 0
-while counter < 100:
-	i = random.randrange(0, len(users)-1)
-	users_for_recs.append(str(users[i]))
-	print users[i]
-	counter += 1
+# counter = 0
+# while counter < 100:
+# 	i = random.randrange(0, len(users)-1)
+# 	users_for_recs.append(str(users[i]))
+# 	print users[i]
+# 	counter += 1
 ########################################################
 # get five recommendations for each user
+
+users_for_recs = [16574, 270589, 362485]
+
 for user_id in users_for_recs:
 	print "Retrieve top 5 recommendations for user " + str(user_id)
 	try:
