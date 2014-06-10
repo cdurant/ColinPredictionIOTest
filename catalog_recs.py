@@ -1,0 +1,34 @@
+import predictionio
+import random
+import csv
+########################################################
+
+# initialize client
+client = predictionio.Client(appkey="hkp4eZXspTjIJUhk7RJpEaO1YWO2V4t8QRHG4nZTjHzIJpNvX4K4r5AwanRnoAKv")
+
+########################################################
+# open user_ids csv and put users into a list. Then generate a list of 100 users to get recs for.
+f = open("user_ids.csv", 'rU')
+
+user_id_reader = csv.reader(f, dialect=csv.excel_tab)
+
+users = []
+
+for user_id in user_id_reader:
+	print "Add user " + user_id[0]
+	users.append(user_id)
+
+users_for_recs = []
+
+for i in random.sample(len(users), 100):
+	users_for_recs.append(users[i])
+########################################################
+# get five recommendations for each user
+for user_id in users_for_recs:
+	print "Retrieve top 5 recommendations for user " + user_id
+	try:
+		client.identify(user_id)
+		rec = client.get_itemrec_topn("CatalogRecommender", 5)
+		print rec
+	except predictionio.ItemRecNotFoundError as e:
+		print "Caught exception: " + e.strerror()
