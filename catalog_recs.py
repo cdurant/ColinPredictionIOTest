@@ -15,7 +15,6 @@ user_id_reader = csv.reader(f, dialect=csv.excel_tab)
 users = []
 
 for user_id in user_id_reader:
-	print "Add user " + user_id[0]
 	users.append(user_id)
 
 users_for_recs = []
@@ -24,6 +23,7 @@ counter = 0
 while counter < 100:
 	i = random.randrange(0, len(users)-1)
 	users_for_recs.append(users[i])
+	print users[i]
 	counter += 1
 ########################################################
 # get five recommendations for each user
