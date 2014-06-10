@@ -22,7 +22,7 @@ users_for_recs = []
 counter = 0
 while counter < 100:
 	i = random.randrange(0, len(users)-1)
-	users_for_recs.append(users[i])
+	users_for_recs.append(str(users[i]))
 	print users[i]
 	counter += 1
 ########################################################
@@ -30,7 +30,7 @@ while counter < 100:
 for user_id in users_for_recs:
 	print "Retrieve top 5 recommendations for user " + str(user_id)
 	try:
-		client.identify(user_id)
+		client.identify(str(user_id))
 		rec = client.get_itemrec_topn("CatalogRecommender", 5)
 		print rec
 	except predictionio.ItemRecNotFoundError as e:
