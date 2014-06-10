@@ -7,13 +7,13 @@ client = predictionio.Client(appkey="hkp4eZXspTjIJUhk7RJpEaO1YWO2V4t8QRHG4nZTjHz
 
 ########################################################
 # open user_ids csv and add each id to predictionio
-f = open("user_ids.csv", 'rU')
+# f = open("user_ids.csv", 'rU')
 
-user_id_reader = csv.reader(f, dialect=csv.excel_tab)
+# user_id_reader = csv.reader(f, dialect=csv.excel_tab)
 
-for user_id in user_id_reader:
-	print "Add user " + user_id[0]
-	client.create_user(user_id[0])
+# for user_id in user_id_reader:
+# 	print "Add user " + user_id[0]
+# 	client.create_user(user_id[0])
 ########################################################
 g = open("issue_ids.csv", 'rU')
 
@@ -21,7 +21,7 @@ issue_id_reader = csv.reader(g, dialect=csv.excel_tab)
 
 for issue_id in issue_id_reader:
 	print "Adding issue " + issue_id[0]
-	client.create_item(issue_id[0], "1, ")
+	client.create_item(issue_id[0], ('1',))
 ########################################################
 h = open("catalog_reads.csv", 'rU')
 
