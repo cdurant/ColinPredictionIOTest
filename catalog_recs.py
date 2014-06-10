@@ -28,7 +28,7 @@ while counter < 100:
 ########################################################
 # get five recommendations for each user
 for user_id in users_for_recs:
-	print "Retrieve top 5 recommendations for user " + user_id
+	print "Retrieve top 5 recommendations for user " + str(user_id)
 	try:
 		client.identify(user_id)
 		rec = client.get_itemrec_topn("CatalogRecommender", 5)
