@@ -20,8 +20,11 @@ for user_id in user_id_reader:
 
 users_for_recs = []
 
-for i in random.sample(len(users), 100):
+counter = 0
+while counter < 100:
+	i = random.randrange(0, len(users)-1)
 	users_for_recs.append(users[i])
+	counter += 1
 ########################################################
 # get five recommendations for each user
 for user_id in users_for_recs:
