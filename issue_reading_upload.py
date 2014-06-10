@@ -25,7 +25,7 @@ client = predictionio.Client(appkey="hkp4eZXspTjIJUhk7RJpEaO1YWO2V4t8QRHG4nZTjHz
 ########################################################
 h = open("new_catalog_reads.csv", 'rU')
 
-catalog_read_reader = csv.reader(h, dialect=csv.excel_tab)
+catalog_read_reader = csv.reader(h)
 
 for row in catalog_read_reader:
 	print "User " + row[0] + " views item " + row[1]
